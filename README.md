@@ -57,13 +57,58 @@ Compare the original, eroded, and dilated images.
 
 ## Program
 
+```py
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create a blank image
+img = np.zeros((300, 500), dtype=np.uint8)
+
+# Insert text
+cv2.putText(img, "", (50, 170),
+            cv2.FONT_HERSHEY_SIMPLEX, 2, 255, 5)
+
+# Create kernel
+kernel = np.ones((7, 7), np.uint8)
+
+# Apply erosion
+erosion = cv2.erode(img, kernel, iterations=1)
+
+# Apply dilation
+dilation = cv2.dilate(img, kernel, iterations=1)
+
+# Display images
+plt.figure(figsize=(10, 5))
+
+plt.subplot(1, 3, 1)
+plt.imshow(img, cmap='gray')
+plt.title("Original Image")
+plt.axis("off")
+
+plt.subplot(1, 3, 2)
+plt.imshow(erosion, cmap='gray')
+plt.title("Erosion")
+plt.axis("off")
+
+plt.subplot(1, 3, 3)
+plt.imshow(dilation, cmap='gray')
+plt.title("Dilation")
+plt.axis("off")
+
+plt.show()
+```
+
 ## Developed By
 
-**Name:** ____________________________
+**Name:** SIVAPRASATH B
 
-**Register No:** ______________________
+**Register No:** 212225230268
 
 ## Output
+
+<img width="895" height="202" alt="image" src="https://github.com/user-attachments/assets/806ffa6d-cf9a-45a6-b146-8630ab01bc02" />
+
 
 ### Original Image
 
